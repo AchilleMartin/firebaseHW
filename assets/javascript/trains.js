@@ -9,28 +9,38 @@ var dataRef = new Firebase("https://traintimenyc.firebaseio.com/");
 console.log(clicked);
 
 
-$('#panel').on('click', function() {
-	console.log('Yes I Work');
-	clicked++;
+	$('#addTrainBtn').on('click', function() {
 
-	dataRef.set({
-		click: clicked,
+		var train = $('#trainNameInput').val();
+		var destination = $('#destinationInput').val();
+		var time = $('#timeInput').val();
+		var frequency = $('#frequencyInput').val();
+
+		console.log('Yes I Work');
+		clicked++;
+
+		dataRef.push({
+
+			train: train,
+			destination: destination,
+			time: time,
+			frequency: frequency
+
+		});
+
+		return false;
+
+// End of Click Function
 
 	});
 
+		dataRef.on("value", function(snapshot) {
 
-});
+			}, function (errorObject) {
+					console.log('The read failed' + errorObject.code);
 
+		}); 
 
-
-
-
-
-
-
-
-
-
-
+// End of Javascript
 
 });

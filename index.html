@@ -2,11 +2,10 @@
 
 <head>
 <title>TrainTracker - NYC</title>
-</head>
 
 <!--Bootstrap CDN-->
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
@@ -23,24 +22,30 @@
 
 <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
+</head>
+
 <body>
 	
 <!--Start Of Container-->
 
 <div class="container">
 	
-	<div class="jumbotron text-center bG">
-		<h2 class="whiteText"><i class="fa fa-train" aria-hidden="true"></i> TrainTracker - NYC</h2>
-		<h5 class="whiteText">An entire tracking database of local trains for the NYC area</h5>
-	</div>
+	<!-- <div class="jumbotron bG"> -->
+		<div class="row spacing">
+			<div class="col-md-8">
+				<div class="topBox text-left">
+					<h2 class="whiteText"><i class="fa fa-train" aria-hidden="true"></i> TrainTracker - NYC</h2>
+					<h5 class="whiteText">An entire tracking database of local trains for the NYC area</h5>
+				</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-primary">
-  			<div class="panel-heading">Current Train Schedule</div>
+				<br>
+				<br>
+
+				<div class="panel blackBg">
+  			<div class="panel-heading formTop">Current Train Schedule</div>
   				<div class="panel-body">
-
-  					<table class="table table-hover">
+  				<!--add table-hover to table class to add hover effect-->
+  					<table class="table">
 	  					<thead>
 
 				  		<tr>
@@ -70,7 +75,7 @@
 					  	<tr>
 
 					  		<td>Nicole Train</td>
-					  		<td>Brookly, NY</td>
+					  		<td>Brooklyn, NY</td>
 					  		<td>22</td>
 					  		<td>8:18</td>
 					  		<td>2</td>
@@ -82,46 +87,54 @@
 				  	</table>
   				</div>
 			</div>
-		</div>
-	</div>
+			</div>
 
-	<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title"><strong>Add Train</strong></h3>
-				</div>
+			<!-- Form Header-->
+
+			<div class="col-md-4 pull-right">
+				<div class="panel blackBg">
+					<div class="panel-heading formTop">
+						<h3 class="panel-title"><strong>Add Train</strong></h3>
+					</div>
+
 				<div class="panel-body">
 	
+				<!-- Start of Entry Form -->
 
-				<!-- Entry Form -->
-				<form>
-					<div class="form-group">
-						<label for="">Train Name</label>
-						<input type="text" class="form-control" id="employeeNameInput">
-					</div>
+					<form>
+						<div class="form-group">
+							<label for="">Train Name</label>
+							<input type="text" class="form-control" id="trainNameInput">
+						</div>
 
-					<div class="form-group">
-						<label for="">Destination</label>
-						<input type="text" class="form-control" id="roleInput">
-					</div>
+						<div class="form-group">
+							<label for="">Destination</label>
+							<input type="text" class="form-control" id="destinationInput">
+						</div>
 
-					<div class="form-group">
-						<label for="">First Train Time (HH:mm - Military Time)</label>
-						<input type="text" class="form-control" id="startInput">
-					</div>
+						<div class="form-group">
+							<label for="">First Train Time (HH:mm - Military Time)</label>
+							<input type="text" class="form-control" id="timeInput">
+						</div>
 
-					<div class="form-group">
-						<label for="">Frequency (min)</label>
-						<input type="text" class="form-control" id="rateInput">
-					</div>
-					
-					<button type="submit" class="btn btn-primary" id="addEmployeeBtn">Submit</button>
-				</form>
+						<div class="form-group">
+							<label for="">Frequency (min)</label>
+							<input type="text" class="form-control" id="frequencyInput">
+						</div>
+						
+						<button type="submit" class="btn btn-success blackBg" id="addTrainBtn">Submit</button>
+					</form>
 
 				</div>
+				</div>
 			</div>
+<!--End of Row-->
 
-			</div>
-		</div>
+		</div>	
+
+<!-- End of Jumbotron-->
+
+<!-- 	</div> -->
 
 <!--End of Container-->
 

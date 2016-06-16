@@ -1,9 +1,56 @@
-.whiteText {
+/*
+.bG {
 
+	background: url('../images/skyNYC.jpg');
+	background-size: cover;
+}*/
+
+body {
+
+	background: url('../images/trainMain.jpg');
+	background-size: cover;
+
+}
+
+
+.topBox {
+
+	background: rgba(0, 0, 0, 0.65);
+	padding: 10px 17px 10px 17px;
+	display: inline-block;
+	border-radius: 12px;
+
+}
+
+.whiteText {
+	text-align: center;
 	color: white;
 }
 
-.bG {
+.jumbotron {
 
-	background-color: black;
+}
+
+.blackBg {
+
+background: rgba(0, 0, 0, 0.65);
+color: rgba(250, 250, 250, 0.9);
+
+}
+
+.formTop {
+
+background: rgba(250, 200, 70, 0.8);
+
+}
+
+.spacing {
+
+	margin-top: 15px;
+}
+
+tr:hover {
+
+background: rgba(250, 215, 70, 0.8);
+
 }
