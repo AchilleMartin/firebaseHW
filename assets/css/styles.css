@@ -5,13 +5,28 @@
 	background-size: cover;
 }*/
 
+@media screen and (max-width: 640px) {
+
+
+	html {
+
+		padding: 40px;
+		text-align: center;
+	  font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-size: cover;
+}
+
+}
+
+
 body {
 
 	background: url('../images/trainMain.jpg');
 	background-size: cover;
-
+	background-repeat: no-repeat;
 }
-
 
 .topBox {
 
