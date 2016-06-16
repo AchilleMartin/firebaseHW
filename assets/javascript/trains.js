@@ -13,7 +13,7 @@ $('#panel').on('click', function() {
 	console.log('Yes I Work');
 	clicked++;
 
-	dataRef.push({
+	dataRef.set({
 		click: clicked,
 
 	});

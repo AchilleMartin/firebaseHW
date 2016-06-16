@@ -35,30 +35,97 @@
 	</div>
 
 	<div class="row">
-
 		<div class="col-md-12">
-			<div class="panel panel-default">
-  <div class="panel-heading">Trains</div>
-  	<div class="panel-body">
-	  	<thead>Insert Col and Rows here</thead>
-	  		<tbody>
-	  		</tbody>
-  	</div>
+			<div class="panel panel-primary">
+  			<div class="panel-heading">Current Train Schedule</div>
+  				<div class="panel-body">
+
+  					<table class="table table-hover">
+	  					<thead>
+
+				  		<tr>
+
+				  			<th>Train Name</th>
+				  			<th>Destination</th>
+				  			<th>Frequency (min)</th>
+				  			<th>Next Arrival</th>
+				  			<th>Minutes Away</th>
+
+				  		</tr>
+
+				  		</thead>
+
+					  	<tbody>
+
+					  	<tr>
+
+					  		<td>Toddy Train</td>
+					  		<td>Aberdeen, NJ</td>
+					  		<td>35</td>
+					  		<td>8:13</td>
+					  		<td>4</td>
+
+					  	</tr>
+
+					  	<tr>
+
+					  		<td>Nicole Train</td>
+					  		<td>Brookly, NY</td>
+					  		<td>22</td>
+					  		<td>8:18</td>
+					  		<td>2</td>
+
+					  	</tr>
+
+					  	</tbody>
+
+				  	</table>
+  				</div>
+			</div>
 		</div>
 	</div>
 
+	<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Add Train</strong></h3>
+				</div>
+				<div class="panel-body">
+	
 
-</div>
+				<!-- Entry Form -->
+				<form>
+					<div class="form-group">
+						<label for="">Train Name</label>
+						<input type="text" class="form-control" id="employeeNameInput">
+					</div>
 
-	<div class="row">
-		<div class="col-md-12 text-center">
-			<button type="button" class="btn btn-default" id="panel">Click Me</button>
-		<!-- Add Panel Here-->
+					<div class="form-group">
+						<label for="">Destination</label>
+						<input type="text" class="form-control" id="roleInput">
+					</div>
 
+					<div class="form-group">
+						<label for="">First Train Time (HH:mm - Military Time)</label>
+						<input type="text" class="form-control" id="startInput">
+					</div>
+
+					<div class="form-group">
+						<label for="">Frequency (min)</label>
+						<input type="text" class="form-control" id="rateInput">
+					</div>
+					
+					<button type="submit" class="btn btn-primary" id="addEmployeeBtn">Submit</button>
+				</form>
+
+				</div>
+			</div>
+
+			</div>
 		</div>
-	</div>
 
 <!--End of Container-->
+
+</div>
 
 <script type="text/javascript" src="assets/javascript/trains.js"></script>
 
