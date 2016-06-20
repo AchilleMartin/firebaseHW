@@ -32,87 +32,62 @@ var dataRef = new Firebase("https://traintimenyc.firebaseio.com/");
 
 		return false;
 
-
 // End of Click Function
 
 	});
 
+// Child Added Function for Data
+
 		dataRef.on("child_added", function(snapshot) {
 
-		// Logs all of the user-input data
-		// console.log(snapshot.val().train + " = train");
-		// console.log(snapshot.val().destination + " = destination");
-		// console.log(snapshot.val().time + " = time");
-		// console.log(snapshot.val().frequency +" = frequency");
+		// Logs all of the user-input data to the console
+		console.log(snapshot.val().train + " = train");
+		console.log(snapshot.val().destination + " = destination");
+		console.log(snapshot.val().firstTrain + " = nextTrain");
+		console.log(snapshot.val().frequency +" = frequency");
 
-		//
-		train = $('#trainNameInput').val();
-		destination = $('#destinationInput').val();
-		firstTrain = $('#firstTrainInput').val();
-		frequency = $('#frequencyInput').val();
+		// Variables assigned to equal value of child_added inputs
+		var train = snapshot.val().train;
+		var destination = snapshot.val().destination;
+		var firstTrain = snapshot.val().firstTrain;
+		var frequency = snapshot.val().frequency;
 
-		var trainSubmit = [snapshot.val().train, snapshot.val().destination, snapshot.val().frequency, snapshot.val().firstTrain];
+		// Moment JS
+		var timeHour = moment().format('H');
+		var timeMin = moment().format('m');
+		var ftHour = moment(firstTrain, "HH:mm").format('H');
+		var ftMin = moment(firstTrain, "HH:mm").format('m');
 
-		// Creating a row when userinput is submitted
-		var row = $('<tr>')
+		var ftMoment = (ftHour * 60) + (ftMin * 1);
+		var timeMoment = (timeHour * 60) + (timeMin * 1);
 
-		// For loop to go through all of the values for userInput
+	// Find how much time has passed since the first train
+		var diff = timeMoment - ftMoment;
 
-		for (var i = 0; i < trainSubmit.length; i++) {
+	// Find how many trains have come so far
+		var trainsSinceFirst = Math.floor(diff/frequency);
 
-				// Creating variable to make new data cell for table
-				var	datacell = $('<td>')
+	// Find how long until the next train comes
+		var nextArrival = ((trainsSinceFirst + 1) * frequency) + ftMoment;
+		
+	// Handle negative values for minAway and nextArrival
+		if (ftMoment < timeMoment) {
+			var minAway = nextArrival - timeMoment;
+			var nextArrival = moment().add(minAway, 'minutes').format('HH:mm');
+		} 
+		else {
+			var nextArrival = firstTrain;
+			var minAway = ftMoment - timeMoment;
+		};
 
-				// Pushes Aaray to the datacell
-				datacell.html(trainSubmit[i]);
-
-				//Creating an id to use later if necessary
-				datacell.attr('id', i);
-
-				//Pushing the datacell to the row
-				row.append(datacell);
-
-		}
-
-		//Appends row to the table id div
-
-		$('#userInput').append(row);
-
-
-	var timeHour = moment().format('H');
-	var timeMin = moment().format('m');
-	var ftHour = moment(firstTrain, "HH:mm").format('H');
-	var ftMin = moment(firstTrain, "HH:mm").format('m');
-
-	var ftMoment = (ftHour * 60) + (ftMin * 1);
-	var timeMoment = (timeHour * 60) + (timeMin * 1);
-
-// Find how much time has passed since the first train
-	var diff = timeMoment - ftMoment;
-
-// Find how many trains have come so far
-	var trainsSinceFirst = Math.floor(diff/frequency);
-
-// Find how long until the next train comes
-	var nextArrival = ((trainsSinceFirst + 1) * frequency) + ftMoment;
-	
-// Handle negative values for minAway and nextArrival
-	if (ftMoment < timeMoment) {
-		var minAway = nextArrival - timeMoment;
-		var nextArrival = moment().add(minAway, 'minutes').format('HH:mm');
-	} 
-	else {
-		var nextArrival = firstTrain;
-		var minAway = ftMoment - timeMoment;
-	};
-
-		// return false;
-
+	// Appends new information to table
+	$("#trainData").append("<tr><td>" + train + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
 
 			}, function (errorObject) {
 					console.log('The read failed' + errorObject.code);
 
 		}); 
+
 
 // End of Javascript
 
